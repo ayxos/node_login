@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  .api
+    h1 #{title}
+
+    pre.data
+      span.bracket {
+
+      each key, value in keys
+        .entry
+          span.str #{key} :
+          span.pln  #{values[value]}
+
+      span.bracket }
+
+    pre.data
+      .entry
+          |Select
+          b 'key'
+          | and set a
+          b 'value'
+
+      .entry
+          select#keys(name='keys')
+            #keys
+              - each key in keys
+                option(value='#{key}') #{key}
+          input#value.pln
+      div#addCommentSubmit
+          input#update(type="submit", value="Update entry", style="font-size:20;float:right", data-id='#{id}')
+
+    .options
+      input#del(type='submit', value='Delete', data-id='#{id}')
+      a(href='/', style="float:right") Back
+
+block footer
+  blockquote #{footer}
+    a(href='https://github.com/cybermarkus1/node_APIrest') Github project
+    a(href='https://bitbucket.org/cybermarkus1/node_apirest', style="margin-left:2%") Bitbucket project
