@@ -34,7 +34,7 @@ block content
               input(type='submit', value='View JSON')
             a#api(href='api/entries/#{entry.id}', style="display:inline-block")
               input(type='submit', value='View API')
-            input#del(type='submit', value='Delete', data-id='#{entry.id}')
+            input.del(type='submit', value='Delete', data-id='#{entry.id}')
 
 block footer
   blockquote #{footer}
